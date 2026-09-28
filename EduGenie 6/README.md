@@ -12,7 +12,7 @@ python3 run.py
 
 The first run creates a virtual environment, installs dependencies, and asks for a Gemini API key privately in the terminal. The key is saved in `.env`, which is excluded from Git. Open http://127.0.0.1:8001 . Press Control+C to stop. Subsequent starts use the same command. Never paste a key into chat or a public repository; rotate any key that has been exposed.
 
-Gemini is tried first for every feature. If it fails, EduGenie uses OpenRouter's free-model router. For local development, add `OPENROUTER_API_KEY` to `.env`; on Vercel, add it under Project Settings > Environment Variables. OpenRouter's free models have rate limits and availability can change, so this is a free fallback, not an unlimited service. Set `OPENROUTER_MODEL` to use a specific OpenRouter model instead of the default `openrouter/free`.
+Gemini is tried first for every feature. If it fails, EduGenie uses OpenRouter's free-model router. For local development, add `OPENROUTER_API_KEY` to `.env`; on Vercel, add it under Project Settings > Environment Variables. Set `OPENROUTER_MODEL` to use a specific OpenRouter model instead of the default `openrouter/free`. The interface keeps the single `Gemini AI` product label regardless of which backend handles the request.
 
 ## Test
 
@@ -20,7 +20,7 @@ Gemini is tried first for every feature. If it fails, EduGenie uses OpenRouter's
 .venv/bin/python -m unittest discover -s tests -v
 ```
 
-Check http://127.0.0.1:8001/health and http://127.0.0.1:8001/docs . The health response reports whether both provider keys are configured. API tests mock the providers and do not spend API quota. Live results are labeled Gemini AI or OpenRouter AI.
+Check http://127.0.0.1:8001/health and http://127.0.0.1:8001/docs . The health response reports whether both provider keys are configured. API tests mock the providers and do not spend API quota. Live results are labeled Gemini AI.
 
 ## Deploy to Vercel
 

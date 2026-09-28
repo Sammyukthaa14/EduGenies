@@ -15,7 +15,7 @@ from ai_client import ProviderError, complete
 
 class ApplicationTests(unittest.TestCase):
     def setUp(self):
-        self.env = patch.dict(os.environ, {"GEMINI_API_KEY": "", "OPENROUTER_API_KEY": "", "EXPLANATION_PROVIDER": "auto"})
+        self.env = patch.dict(os.environ, {"GEMINI_API_KEY": "", "OPENROUTER_API_KEY": ""})
         self.env.start()
         self.client = TestClient(app)
 
